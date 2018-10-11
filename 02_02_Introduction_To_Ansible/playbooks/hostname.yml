@@ -1,0 +1,5 @@
+---
+  - hosts: all
+    tasks:
+      - name: 'Get server hostname'
+        command: hostname
