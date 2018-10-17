@@ -1,0 +1,29 @@
+/* You can add global styles to this file, and also import other style files */
+.background {
+  padding-bottom: 50px;
+}
+
+.img-icon {
+  max-width: 100px;
+}
+
+.tools-body .row{
+  padding-top: 50px;
+}
+
+.footer {
+  padding-top: 100px;
+}
+
+.brand-img
+{
+     margin-left: 70px;
+}
+
+.ansible-logo {
+  max-width: 250px;
+}
+
+.info-item {
+  padding: 15px;
+}
