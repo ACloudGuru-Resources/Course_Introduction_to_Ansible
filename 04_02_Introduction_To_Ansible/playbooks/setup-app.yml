@@ -1,0 +1,28 @@
+# setup-app.yml
+---
+  - hosts: webservers
+    become: true
+    tasks: 
+      - name: Upload AngularJS App
+        synchronize:
+          src: ../site
+          dest: /tmp
+          rsync_opts:
+            - "--exclude=node_modules"
+      - name: Remove node_modules
+        file:
+          name: /tmp/site/node_modules
+          state: absent
+      - name: Install npm dependencies
+        npm:
+          name: install
+          path: /tmp/site
+      - name: Build distribution
+        command: ng build --prod --aot
+        args:
+          chdir: /tmp/site
+      - name: Move dist files
+        synchronize:
+          src: /tmp/site/dist/site/.
+          dest: /var/www/html
+        delegate_to: "{{ inventory_hostname }}"
