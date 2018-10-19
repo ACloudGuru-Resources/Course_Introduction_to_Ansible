@@ -1,38 +1,22 @@
 # install-services.yml
+
 ---
   - hosts: loadbalancers
     become: true
     tasks:
-      - name: Install apache
-        yum: name=httpd state=latest
+      - name: Installing apache
+        yum: name=httpd state=present
       - name: Ensure apache starts
-        service:
-          name: httpd
-          state: started
-          enabled: yes
+        service: name=httpd state=started enabled=yes
 
   - hosts: webservers
     become: true
     tasks:
-      - name: Get NodeJS Installer
-        get_url: 
-          url: https://rpm.nodesource.com/setup_10.x
-          dest: /tmp/nodejs.sh
-          mode: 600
-      - name: Execute NodeJS script
-        shell: /tmp/nodejs.sh
-      - name: Install services
+      - name: Installing services
         yum:
-          name:
+          name: 
             - httpd
-            - nodejs
-          state: latest
-      - name: Install angular-cli
-        npm: 
-          name: "@angular/cli"
-          global: yes
+            - php
+          state: present
       - name: Ensure apache starts
-        service:
-          name: httpd
-          state: started
-          enabled: yes
+        service: name=httpd state=started enabled=yes
