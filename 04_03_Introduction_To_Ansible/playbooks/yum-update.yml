@@ -4,5 +4,5 @@
   - hosts: webservers:loadbalancers
     become: true
     tasks:
-      - name: Update yum packages
+      - name: Updating yum packages
         yum: name=* state=latest
