@@ -1,19 +1,16 @@
 # setup-lb.yml
----
+
+--- 
   - hosts: loadbalancers
-    become: true
+    become: true 
     tasks:
       - name: Creating template
         template:
-          src: ../config/lb.template
-          dest:  /etc/httpd/conf.d/lb.conf
+          src: ../config/lb-config.j2
+          dest: /etc/httpd/conf.d/lb.conf
           owner: bin
           group: wheel
           mode: 064
-        notify: restart httpd
-    
-    handlers:
-      - name: restart httpd
-        service:
-          name: httpd
-          state: restarted
+
+      - name: restart apache
+        service: name=httpd state=restarted 
