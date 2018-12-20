@@ -15,6 +15,7 @@ Lab files for A Cloud Guru, Course - Introduction To Ansible
 - How to setup Ansible locally and configure local environment to utilize Ansible.
 - Learn how to run Ansible command and build playbooks
 - Learn how to stand up a simple infrastructure from nothing to fully functional configured environment.
+- Learn about other Ansible topics that make your playbooks and Ansible setup more modular and more robust.
 
 
 Please note, this is provided as-is, neither I, nor A Cloud Guru support this code. If you do identify any errors, then please identify and we will attempt to fix on a best efforts basis.
