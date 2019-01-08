@@ -9,6 +9,8 @@ Mappings:
   RegionMap:
     us-east-1:
       AMI: ami-0ff8a91507f77f867
+    us-east-2:
+      AMI: ami-02e680c4540db351e
     us-west-2:
       AMI: ami-a0cfeed8
 Resources:
@@ -106,4 +108,4 @@ Outputs:
   WebsiteLink:
     Description: The Public DNS for the EC2 Instance
     Value: !Sub 'http://${LnEc2InstanceLoadBalancer.PublicDnsName}'
-       
+
