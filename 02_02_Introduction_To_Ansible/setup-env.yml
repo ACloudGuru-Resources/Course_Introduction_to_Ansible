@@ -4,7 +4,7 @@ Parameters:
     Type: String
   KeyName:
     Description: Name of an existing EC2 KeyPair to enable SSH access into the server
-    Type: AWS::EC2::KeyPair::KeyName
+    Type: AWS::EC2::KeyPair::odiakaosao
 Mappings:
   RegionMap:
     us-east-1:
